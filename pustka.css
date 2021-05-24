@@ -1,0 +1,18 @@
+.pustka .cmbWyniki
+{
+    display: none;
+}
+
+.pustka .cmbpogrub
+{
+    display: none;
+}
+
+.pustka .lista .result:hover {
+    display: none;
+}
+
+.pustka .lista .result.active {
+    display: none
+}
+

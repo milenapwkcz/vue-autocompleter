@@ -1,0 +1,97 @@
+.container
+{
+    justify-content: center;
+    align-content: center;
+    padding-top: 300px;
+    padding-left: 300px;
+}
+
+input
+{
+    width: 550px;
+    background-color: transparent;
+    margin: 0;
+    border: none;
+    padding: 0;
+    padding-bottom: 10px;
+    color: rgba(0,0,0,.87);
+    word-wrap: break-word;
+    outline: none;
+    display: flex;
+    flex: 100%;
+    height: 50px;
+    font-size: 16px;
+    font-family: arial,sans-serif;
+    -webkit-appearance: textfield;
+    font-weight: 400;
+    text-align: start;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.wyszukiwarka
+{
+    width: auto;
+    max-width: 550px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 25px;
+    z-index: 3;
+    height: 40px;
+}
+
+.autocompleter
+{
+    display: flex;
+    flex: 100%;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(32,33,36,.28);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 25px 25px;
+    padding-top: 10px;
+
+}
+
+.cmbBox
+{
+    display: flex;
+    flex:1 ;
+    flex-direction: column;
+    width: 550px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #212121;
+    list-style: none;
+    padding: 0;
+    padding-bottom: 8px;
+    font-family: arial,sans-serif;
+    cursor: pointer;
+}
+
+.cmbWyniki
+{
+    font-family: arial,sans-serif;
+    padding: 2px 0 2px 11px;
+}
+
+.cmbpogrub
+{
+    display: inline-block;
+}
+
+.lista .result:hover {
+    border-left: 5px solid blue;
+    cursor: pointer;
+}
+
+.lista .result.active {
+    background-color: gray;
+}
+
+.bold {
+    font-weight: bold;
+}
