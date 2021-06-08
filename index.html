@@ -2,7 +2,7 @@
 <html lang="pl">
     <head>
         <meta charset="utf-8">
-        <title>Google</title>
+        <title>Vue autocompleter</title>
         <link rel="stylesheet" href="pustka.css">
         <link rel="stylesheet" href="autocompleter.css">
         <script src="cities.js"></script>
@@ -14,23 +14,7 @@
         <div id="app" :class="[googleSearch.length != 0 && isActive == 1 ? 'results' : isActive = 0 ]"> 
             <section class="container">
                 <section class="centrum">
-                    <div class="wyszukiwarka">
-                        <input v-model="googleSearch" 
-                        type="text" class="search_input" 
-                        v-on:click="ustaw()" 
-                        @keyup.down="idzDo(aktywnyWynik + 1)"
-                        @keyup.up="idzDo(aktywnyWynik - 1)"
-                        @keyup.enter="idzDoWynikow()">
-                        <div class="lista">
-                            <div :class="[googleSearch.length != 0 && filtrowaniemiast.length != 0 && c == 1 ? 'autocompleter' : 'pustka']">
-                                <ul class="cmbBox">
-                                    <li class="cmbWyniki" v-for="miasto in filtrowaniemiast" v-on:click="zmiana(miasto.name)">
-                                        <div class="cmbpogrub" v-html="pogrub(miasto.name)">
-                                        </div>  
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <v-autocompleter :value="googleSearch" @input="googleSearch = $event" @enter="enter"></v-autocompleter>
                     </div>
                 </section>  
             </section>         
@@ -46,18 +30,6 @@
                         isOnResult: false,
                         c: 0,
                       },
-
-                
-                      computed: {
-                          filtrowaniemiast: function(){
-                              let wynik= this.miasta.filter(miasto=> miasto.name.includes(this.googleSearch));
-                              if (wynik.length>10)
-                              {
-                                  return wynik.slice(1,11);
-                              }
-                              return wynik;
-                            }
-                        },
                         
                         methods:{
                             pogrub(wynik)
@@ -124,6 +96,11 @@
                             {
                                 this.c=1;
                             },
+
+                            enter(a, b) {
+                                console.log("Results");
+                                this.isActive = a;
+                                this.googleSearch = b;
 
                         }
                     });
